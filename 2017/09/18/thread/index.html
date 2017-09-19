@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/notesblog/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/notesblog/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -108,7 +115,7 @@
 <meta property="og:image" content="https://hxl71.github.io/notesblog/images/picture/TIM图片20170919143049.png">
 <meta property="og:image" content="https://hxl71.github.io/notesblog/images/picture/TIM截图20170919150954.png">
 <meta property="og:image" content="https://hxl71.github.io/notesblog/images/picture/TIM截图20170919152041.png">
-<meta property="og:updated_time" content="2017-09-19T07:51:55.965Z">
+<meta property="og:updated_time" content="2017-09-19T10:08:15.105Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java多线程-基础篇">
 <meta name="twitter:description" content="在J2EE开发中很多地方都会用到线程，这样不仅可以提高执行效率，而且还可以提高资源的利用率  线程基础线程的状态： NEW   线程刚创建，尚未启动  RUNNABLE  线程正在运行中，在这种状态下不会发生wait、sleep的等待状态  BLOCKED  在多个线程有同步操作的场景  WAITING  线程拥有了某个锁之后，调用了他的wait方法  TIMEDWAITING  有时间限制的W">
@@ -170,6 +177,8 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
+	<a href="https://github.com/hxl71"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+	
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
@@ -423,6 +432,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  555
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
 
           
 
@@ -461,15 +501,14 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BlockedThread</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">final</span> Object lock = <span class="keyword">new</span> Object();</div><div class="line">		Runnable r = <span class="keyword">new</span> Runnable() &#123;</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Integer.MIN_VALUE; i++) &#123;</div><div class="line">					<span class="keyword">synchronized</span> (lock) &#123;</div><div class="line">						System.out.println(i);</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">				</div><div class="line">			&#125;</div><div class="line">		&#125;;</div><div class="line">		Thread t1 = <span class="keyword">new</span> Thread(r);</div><div class="line">		t1.setName(<span class="string">"t1"</span>);</div><div class="line">		Thread t2 = <span class="keyword">new</span> Thread(r);</div><div class="line">		t2.setName(<span class="string">"t2"</span>);</div><div class="line">		t1.start();</div><div class="line">		t2.start();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>这个时候一个线程RUNNABLE，另一个就是BLOCKED</p>
 <p><img src="/notesblog/images/picture/TIM图片20170919143049.png" alt="TIM图片20170919143049"></p>
-<p>######WAITING 状态：</p>
-<p>这个需要用到生产者消费者模型, 当生产者生产过慢的时候, 消费者就会等待生产者的下一次notify;</p>
+<h6 id="WAITING-状态："><a href="#WAITING-状态：" class="headerlink" title="WAITING 状态："></a>WAITING 状态：</h6><p>这个需要用到生产者消费者模型, 当生产者生产过慢的时候, 消费者就会等待生产者的下一次notify;</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WaitingThread</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">final</span> Object lock = <span class="keyword">new</span> Object();</div><div class="line">		Thread t1 = <span class="keyword">new</span> Thread() &#123;</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				<span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">				<span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</div><div class="line">					<span class="keyword">synchronized</span> (lock) &#123;</div><div class="line">						<span class="keyword">try</span> &#123;</div><div class="line">							lock.wait();</div><div class="line">						&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">							e.printStackTrace();</div><div class="line">						&#125;</div><div class="line">                      	System.out.println(i++);</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;;</div><div class="line">		</div><div class="line">		Thread t2 = <span class="keyword">new</span> Thread() &#123;</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				<span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</div><div class="line">					<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Integer.MAX_VALUE; i++) &#123;</div><div class="line">						System.out.println(i);</div><div class="line">					&#125;</div><div class="line">					lock.notifyAll();</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;;</div><div class="line">		</div><div class="line">		t1.setName(<span class="string">"t1"</span>);</div><div class="line">		t2.setName(<span class="string">"t2"</span>);</div><div class="line">		t1.start();</div><div class="line">		t2.start();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><img src="/notesblog/images/picture/TIM截图20170919150954.png" alt="TIM截图20170919150954"></p>
-<h6 id="TIMED-WAITING："><a href="#TIMED-WAITING：" class="headerlink" title="TIMED_WAITING："></a>TIMED_WAITING：</h6><p>在上个例子的基础上<code>wait</code>加上时间参数就OK了；</p>
+<h6 id="TIMED-WAITING状态："><a href="#TIMED-WAITING状态：" class="headerlink" title="TIMED_WAITING状态："></a>TIMED_WAITING状态：</h6><p>在上个例子的基础上<code>wait</code>加上时间参数就OK了；</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">synchronized</span> (lock) &#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">    	lock.wait(<span class="number">60</span>*<span class="number">1000L</span>);</div><div class="line">    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">    	e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">    System.out.println(i++);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><img src="/notesblog/images/picture/TIM截图20170919152041.png" alt="TIM截图20170919152041"></p>
 <p>t1现在为<code>TIMED_WAITING (on object monitor)</code>这里括号里还可能是<code>sleeping</code>等其它情况。</p>
-<h6 id="TERMINATED-："><a href="#TERMINATED-：" class="headerlink" title="TERMINATED ："></a>TERMINATED ：</h6><p>线程运行结束就是<code>TERMINATED</code>状态</p>
+<h6 id="TERMINATED状态-："><a href="#TERMINATED状态-：" class="headerlink" title="TERMINATED状态 ："></a>TERMINATED状态 ：</h6><p>线程运行结束就是<code>TERMINATED</code>状态</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">TERMINATED</span><span class="params">()</span> </span>&#123;</div><div class="line">  	Thread t1 = <span class="keyword">new</span> Thread();</div><div class="line">  	t1.start();</div><div class="line">  	System. out.println(t1.getState());</div><div class="line">  	<span class="keyword">try</span> &#123;</div><div class="line">   		 Thread. sleep(<span class="number">1000L</span>);</div><div class="line">  	&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">  	&#125;</div><div class="line">  	System. out.println(t1.getState());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>执行结果：</p>
 <p>​    RUNNABLE </p>
@@ -481,6 +520,16 @@
     
     
 
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	  
+	</div>
+	
     
 
     
@@ -505,13 +554,14 @@
       </div>
     
 
+	
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/notesblog/tags/java/" rel="tag"># java</a>
+            <a href="/notesblog/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
           
-            <a href="/notesblog/tags/多线程/" rel="tag"># 多线程</a>
+            <a href="/notesblog/tags/多线程/" rel="tag"><i class="fa fa-tag"></i> 多线程</a>
           
         </div>
       
@@ -676,6 +726,20 @@
 
         
         
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              推荐阅读
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://hxl71.github.io/notesblog/" title="Title" target="_blank">Title</a>
+                </li>
+              
+            </ul>
+          </div>
+        
 
         
 
@@ -692,7 +756,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#线程基础"><span class="nav-number">1.</span> <span class="nav-text">线程基础</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#线程的状态："><span class="nav-number">1.1.</span> <span class="nav-text">线程的状态：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#NEW状态："><span class="nav-number">1.2.</span> <span class="nav-text">NEW状态：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#RUNNABLE-状态："><span class="nav-number">1.3.</span> <span class="nav-text">RUNNABLE 状态：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#BLOCKED状态："><span class="nav-number">1.4.</span> <span class="nav-text">BLOCKED状态：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#TIMED-WAITING："><span class="nav-number">1.5.</span> <span class="nav-text">TIMED_WAITING：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#TERMINATED-："><span class="nav-number">1.6.</span> <span class="nav-text">TERMINATED ：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#线程基础"><span class="nav-number">1.</span> <span class="nav-text">线程基础</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#线程的状态："><span class="nav-number">1.1.</span> <span class="nav-text">线程的状态：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#NEW状态："><span class="nav-number">1.2.</span> <span class="nav-text">NEW状态：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#RUNNABLE-状态："><span class="nav-number">1.3.</span> <span class="nav-text">RUNNABLE 状态：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#BLOCKED状态："><span class="nav-number">1.4.</span> <span class="nav-text">BLOCKED状态：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#WAITING-状态："><span class="nav-number">1.5.</span> <span class="nav-text">WAITING 状态：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#TIMED-WAITING状态："><span class="nav-number">1.6.</span> <span class="nav-text">TIMED_WAITING状态：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#TERMINATED状态-："><span class="nav-number">1.7.</span> <span class="nav-text">TERMINATED状态 ：</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -723,7 +787,7 @@
 
   
 </div>
-<!--
+
 
   <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
@@ -731,8 +795,11 @@
 
   <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
 
--->
 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共1.3k字</span>
+</div>
         
 <div class="busuanzi-count">
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
