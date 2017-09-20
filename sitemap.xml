@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://hxl71.github.io/notesblog/2017/09/18/thread/</loc>
+    <loc>https://hxl71.github.io/notesblog/photos/index.html</loc>
     
-    <lastmod>2017-09-19T10:08:15.105Z</lastmod>
+    <lastmod>2017-09-20T00:53:16.034Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hxl71.github.io/notesblog/about/index.html</loc>
+    
+    <lastmod>2017-09-20T00:53:16.031Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://hxl71.github.io/notesblog/2017/09/18/testpost/</loc>
     
-    <lastmod>2017-09-19T09:30:10.436Z</lastmod>
+    <lastmod>2017-09-20T00:53:16.028Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hxl71.github.io/notesblog/2017/09/18/thread/</loc>
+    
+    <lastmod>2017-09-19T10:08:15.105Z</lastmod>
     
   </url>
   
@@ -37,23 +51,9 @@
   </url>
   
   <url>
-    <loc>https://hxl71.github.io/notesblog/photo/index.html</loc>
-    
-    <lastmod>2017-09-18T08:30:12.205Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://hxl71.github.io/notesblog/2017/09/18/hello-world/</loc>
     
     <lastmod>2017-09-18T07:01:53.626Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hxl71.github.io/notesblog/about/index.html</loc>
-    
-    <lastmod>2017-09-15T10:14:31.656Z</lastmod>
     
   </url>
   
