@@ -1825,7 +1825,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f9b0ff;
+  background: #ff9fff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2907,9 +2907,17 @@ hr {
     text-align: center;
   }
 }
+body {
+  margin: 0;
+  background: #f9f9f9;
+}
 .menu .menu-item a:hover {
   background: #428bca;
   color: #eee;
+  -moz-transition: background-color 1s ease-in;
+  -webkit-transition: background-color 1s ease-in;
+  -o-transition: background-color 1s ease-in;
+  transition: background-color 1s ease-in;
 }
 .header-inner {
   padding: 5px 0 5px;
@@ -2938,10 +2946,6 @@ hr {
 .link-blue:hover {
   color: #f00;
 }
-code {
-  color: #fff;
-  background: #333;
-}
 .posts-expand .post-body img {
   margin: 0 auto;
 }
@@ -2958,6 +2962,18 @@ a#download {
 a#download:hover {
   background: #000;
   color: #fff;
+}
+.post-nav-item a {
+  position: relative;
+  display: block;
+  line-height: 25px;
+  font-size: 14px;
+  color: #2780e3;
+  border-bottom: none;
+}
+.post-nav-item a:hover {
+  background: #f5f5f5;
+  color: #666;
 }
 .post-more-link .btn {
   position: relative;
@@ -3244,6 +3260,32 @@ span#yu-1:hover {
 }
 .valine .info {
   display: none;
+}
+.vident input {
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  border: #3090e4 1px solid;
+  border-radius: 3px;
+  outline: none;
+}
+.vident input:focus {
+  box-shadow: 0 0 5px #51cbee;
+  -webkit-box-shadow: 0 0 5px #51cbee;
+  -moz-box-shadow: 0 0 5px #51cbee;
+}
+.vedit textarea {
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  border: #3090e4 1px solid;
+  border-radius: 3px;
+  outline: none;
+}
+.vedit textarea:focus {
+  box-shadow: 0 0 5px #51cbee;
+  -webkit-box-shadow: 0 0 5px #51cbee;
+  -moz-box-shadow: 0 0 5px #51cbee;
 }
 span#yu-2 {
   display: inline;
