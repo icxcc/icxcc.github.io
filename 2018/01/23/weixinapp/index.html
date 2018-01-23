@@ -440,7 +440,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  792
+                  769
                 </span>
               
 
@@ -481,14 +481,14 @@
 <p>前段时间开发一个微信小程序项目，需要本地开发接口，而微信开发工具只能用HTTPS请求，所以不得不配置本地代理；开始在网上找了个教程用Charles这个代理工具，感觉用着有点麻烦，所以换成nginx；</p>
 </blockquote>
 <a id="more"></a>
-<h5 id="申请AppID"><a href="#申请AppID" class="headerlink" title="申请AppID"></a>申请AppID</h5><p>​    这个直接在[公众号平台][<a href="https://mp.weixin.qq.com]申请就可以了；" target="_blank" rel="external">https://mp.weixin.qq.com]申请就可以了；</a></p>
-<h5 id="配置域名"><a href="#配置域名" class="headerlink" title="配置域名"></a>配置域名</h5><p>  在[公众号平台][<a href="https://mp.weixin.qq.com]开发者设置&gt;服务器配置中填写域名信息，这个只能填写真实域名，还需要SSL支持；" target="_blank" rel="external">https://mp.weixin.qq.com]开发者设置&gt;服务器配置中填写域名信息，这个只能填写真实域名，还需要SSL支持；</a></p>
+<h5 id="申请AppID"><a href="#申请AppID" class="headerlink" title="申请AppID"></a>申请AppID</h5><p>​    这个直接在<a href="https://mp.weixin.qq.com" target="_blank" rel="external">公众号平台</a>申请就可以了；</p>
+<h5 id="配置域名"><a href="#配置域名" class="headerlink" title="配置域名"></a>配置域名</h5><p>  在<a href="https://mp.weixin.qq.com" target="_blank" rel="external">公众号平台</a>开发者设置&gt;服务器配置中填写域名信息，这个只能填写真实域名，还需要SSL支持；</p>
 <h4 id="本地开发环境配置"><a href="#本地开发环境配置" class="headerlink" title="本地开发环境配置"></a>本地开发环境配置</h4><p>   <strong>这里主要说的是Windows环境，其他Lunix、MAC也大同小异</strong></p>
 <p>#####1.修改Hosts</p>
 <p>​     首先找到Hosts文件： C:\Windows\System32\drivers\etc\hosts</p>
 <p>然后添加下面这行到hosts，将域名映射到本地：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">127.0.0.1 www.yourdomain.com</div></pre></td></tr></table></figure>
-<h5 id="2-生成自签名SSL证书"><a href="#2-生成自签名SSL证书" class="headerlink" title="2.生成自签名SSL证书"></a>2.生成自签名SSL证书</h5><p>首先需要安装openssl [【点击这里下载】][<a href="http://slproweb.com/download/Win64OpenSSL-1_1_0g.exe]，安装好后需要将其配置到环境变量（如果已经安装过openssl自行忽略...）；" target="_blank" rel="external">http://slproweb.com/download/Win64OpenSSL-1_1_0g.exe]，安装好后需要将其配置到环境变量（如果已经安装过openssl自行忽略...）；</a></p>
+<h5 id="2-生成自签名SSL证书"><a href="#2-生成自签名SSL证书" class="headerlink" title="2.生成自签名SSL证书"></a>2.生成自签名SSL证书</h5><p>首先需要安装openssl <a href="http://slproweb.com/download/Win64OpenSSL-1_1_0g.exe" target="_blank" rel="external">【点击这里下载】</a>，安装好后需要将其配置到环境变量（如果已经安装过openssl自行忽略…）；</p>
 <p><strong>打开命令行工具</strong></p>
 <ol>
 <li><p>生成private.key</p>
@@ -512,7 +512,7 @@
 </li>
 </ol>
 <p>完成了以上4步后，将server.crt和server.key移到你想要存放证书的地方。</p>
-<h5 id="3-安装和配置nginx"><a href="#3-安装和配置nginx" class="headerlink" title="3.安装和配置nginx"></a>3.安装和配置nginx</h5><p>   完成上面步骤后，接下来配置nginx支持HTTPS，[【下载nginx Windows版】][<a href="http://nginx.org/en/download.html]，修改" target="_blank" rel="external">http://nginx.org/en/download.html]，修改</a> nginx配置文件nginx-1.13.8\conf\nginx.conf，</p>
+<h5 id="3-安装和配置nginx"><a href="#3-安装和配置nginx" class="headerlink" title="3.安装和配置nginx"></a>3.安装和配置nginx</h5><p>   完成上面步骤后，接下来配置nginx支持HTTPS，<a href="http://nginx.org/en/download.html" target="_blank" rel="external">【下载nginx Windows版】</a>，修改 nginx配置文件nginx-1.13.8\conf\nginx.conf，</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">        listen       443 ssl;</div><div class="line">        server_name  www.yourdomain.com;</div><div class="line"></div><div class="line">        ssl_certificate      D:/nginx-1.13.8/ssl/server.crt;</div><div class="line">        ssl_certificate_key  D:/nginx-1.13.8/ssl/server.key;</div><div class="line"></div><div class="line">        ssl_session_cache    shared:SSL:1m;</div><div class="line">        ssl_session_timeout  5m;</div><div class="line"></div><div class="line">		ssl_protocols SSLv3 TLSv1 TLSv1.2 TLSv1.1;</div><div class="line">    #    ssl_ciphers  HIGH:!aNULL:!MD5;</div><div class="line">    #    ssl_prefer_server_ciphers  on;</div><div class="line"></div><div class="line">        location / &#123;</div><div class="line">            proxy_pass http://127.0.0.1:8080; # 本地服务器地址及端口</div><div class="line">			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</div><div class="line">			proxy_set_header Host $host;</div><div class="line">			proxy_set_header X-Forward-Proto https;</div><div class="line">			proxy_http_version 1.1;</div><div class="line">			# for websocket</div><div class="line">			proxy_set_header Upgrade $http_upgrade;</div><div class="line">			proxy_set_header Connection &quot;upgrade&quot;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <h5 id="4-测试"><a href="#4-测试" class="headerlink" title="4.测试"></a>4.测试</h5><p>​    这个时候在微信小程序IDE，就可以直接向本地发送HTTPS请求了，请求最终指向的是<a href="http://127.0.0.1:8080" target="_blank" rel="external">http://127.0.0.1:8080</a> </p>
 <p>最后如果小程序IDE提示TLS版本过低，请查看nginx.conf 中server下的<code>ssl_protocols</code> 是否配置正确，获取直接在小程序IDE中去掉验证TLS版本的勾选</p>
