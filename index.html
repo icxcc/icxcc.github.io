@@ -343,6 +343,234 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hxl71.github.io/2018/01/23/weixinapp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hu Xiaolong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="晨溪BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/23/weixinapp/" itemprop="url">微信小程序本地开发环境搭建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-23T11:39:28+08:00">
+                2018-01-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/微信小程序/" itemprop="url" rel="index">
+                    <span itemprop="name">微信小程序</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/01/23/weixinapp/" class="leancloud_visitors" data-flag-title="微信小程序本地开发环境搭建">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  792
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>前段时间开发一个微信小程序项目，需要本地开发接口，而微信开发工具只能用HTTPS请求，所以不得不配置本地代理；开始在网上找了个教程用Charles这个代理工具，感觉用着有点麻烦，所以换成nginx；</p>
+</blockquote>
+<h5 id="申请AppID"><a href="#申请AppID" class="headerlink" title="申请AppID"></a>申请AppID</h5><p>​    这个直接在[公众号平台][<a href="https://mp.weixin.qq.com]申请就可以了；" target="_blank" rel="external">https://mp.weixin.qq.com]申请就可以了；</a></p>
+<h5 id="配置域名"><a href="#配置域名" class="headerlink" title="配置域名"></a>配置域名</h5><p>  在[公众号平台][<a href="https://mp.weixin.qq.com]开发者设置&gt;服务器配置中填写域名信息，这个只能填写真实域名，还需要SSL支持；" target="_blank" rel="external">https://mp.weixin.qq.com]开发者设置&gt;服务器配置中填写域名信息，这个只能填写真实域名，还需要SSL支持；</a></p>
+<h5 id="本地开发环境配置"><a href="#本地开发环境配置" class="headerlink" title="本地开发环境配置"></a>本地开发环境配置</h5><p>   <strong>这里主要说的是Windows环境，其他Lunix、MAC也大同小异</strong></p>
+<h6 id="1-修改Hosts"><a href="#1-修改Hosts" class="headerlink" title="1.修改Hosts"></a>1.修改Hosts</h6><p>​     首先找到Hosts文件： C:\Windows\System32\drivers\etc\hosts</p>
+<p>然后添加下面这行到hosts，将域名映射到本地：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">127.0.0.1 www.yourdomain.com</div></pre></td></tr></table></figure>
+<h6 id="2-生成自签名SSL证书"><a href="#2-生成自签名SSL证书" class="headerlink" title="2.生成自签名SSL证书"></a>2.生成自签名SSL证书</h6><p>首先需要安装openssl [【点击这里下载】][<a href="http://slproweb.com/download/Win64OpenSSL-1_1_0g.exe]，安装好后需要将其配置到环境变量（如果已经安装过openssl自行忽略...）；" target="_blank" rel="external">http://slproweb.com/download/Win64OpenSSL-1_1_0g.exe]，安装好后需要将其配置到环境变量（如果已经安装过openssl自行忽略...）；</a></p>
+<p><strong>打开命令行工具</strong></p>
+<ol>
+<li><p>生成private.key</p>
+<p>输入命令：</p>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl genrsa -des3 -out server.key <span class="number">1024</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>生成CSR (Certificate Signing Request)</p>
+<p>输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl req -new -key server.key -out server.csr</div></pre></td></tr></table></figure>
+<p>这里会要求输入一些地址信息，看着写就好：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">Loading &apos;screen&apos; into random state - done</div><div class="line">You are about to be asked to enter information that will be incorporated</div><div class="line">into your certificate request.</div><div class="line">What you are about to enter is what is called a Distinguished Name or a DN.</div><div class="line">There are quite a few fields but you can leave some blank</div><div class="line">For some fields there will be a default value,</div><div class="line">If you enter &apos;.&apos;, the field will be left blank.</div><div class="line">-----</div><div class="line">Country Name (2 letter code) [AU]:ZH  【国家代码】</div><div class="line">State or Province Name (full name) [Some-State]:HB【省份】</div><div class="line">Locality Name (eg, city) []:WH【城市】</div><div class="line">Organization Name (eg, company) [Internet Widgits Pty Ltd]:yuanjilu【组织】</div><div class="line">Organizational Unit Name (eg, section) []:yuanjilu组织】</div><div class="line">Common Name (e.g. server FQDN or YOUR name) []:*.yourdomain.com 【可以填域名】</div><div class="line">Email Address []:【Enter】</div><div class="line"></div><div class="line">Please enter the following &apos;extra&apos; attributes</div><div class="line">to be sent with your certificate request</div><div class="line">A challenge password []:【Enter】</div><div class="line">An optional company name []:【Enter】</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
+<ol>
+<li>移除Passphrase</li>
+</ol>
+<p>输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cp server.key server.key.org</div><div class="line">openssl rsa -in server.key.org -out server.key</div></pre></td></tr></table></figure>
+<ol>
+<li>生成自签名证书</li>
+</ol>
+<p>输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt</div></pre></td></tr></table></figure>
+<p>完成了以上4步后，将server.crt和server.key移到你想要存放证书的地方。</p>
+<h6 id="3-安装和配置nginx"><a href="#3-安装和配置nginx" class="headerlink" title="3.安装和配置nginx"></a>3.安装和配置nginx</h6><p>   完成上面步骤后，接下来配置nginx支持HTTPS，[【下载nginx Windows版】][<a href="http://nginx.org/en/download.html]，修改" target="_blank" rel="external">http://nginx.org/en/download.html]，修改</a> nginx配置文件nginx-1.13.8\conf\nginx.conf，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">        listen       443 ssl;</div><div class="line">        server_name  www.yourdomain.com;</div><div class="line"></div><div class="line">        ssl_certificate      D:/nginx-1.13.8/ssl/server.crt;</div><div class="line">        ssl_certificate_key  D:/nginx-1.13.8/ssl/server.key;</div><div class="line"></div><div class="line">        ssl_session_cache    shared:SSL:1m;</div><div class="line">        ssl_session_timeout  5m;</div><div class="line"></div><div class="line">		ssl_protocols SSLv3 TLSv1 TLSv1.2 TLSv1.1;</div><div class="line">    #    ssl_ciphers  HIGH:!aNULL:!MD5;</div><div class="line">    #    ssl_prefer_server_ciphers  on;</div><div class="line"></div><div class="line">        location / &#123;</div><div class="line">            proxy_pass http://127.0.0.1:8080; # 本地服务器地址及端口</div><div class="line">			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</div><div class="line">			proxy_set_header Host $host;</div><div class="line">			proxy_set_header X-Forward-Proto https;</div><div class="line">			proxy_http_version 1.1;</div><div class="line">			# for websocket</div><div class="line">			proxy_set_header Upgrade $http_upgrade;</div><div class="line">			proxy_set_header Connection &quot;upgrade&quot;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h6 id="4-测试"><a href="#4-测试" class="headerlink" title="4.测试"></a>4.测试</h6><p>​    这个时候在微信小程序IDE，就可以直接向本地发送HTTPS请求了，请求最终指向的是<a href="http://127.0.0.1:8080" target="_blank" rel="external">http://127.0.0.1:8080</a> </p>
+<p>最后如果小程序IDE提示TLS版本过低，请查看nginx.conf 中server下的<code>ssl_protocols</code> 是否配置正确，获取直接在小程序IDE中去掉验证TLS版本的勾选</p>
+<p><img src="http://osassnq6x.bkt.clouddn.com/winxinapp.png" alt="weixinapp"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+	<div>
+	  
+	</div>
+	
+    
+
+    
+
+    
+
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://hxl71.github.io/2017/12/14/Idea-Keymap/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1105,175 +1333,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hxl71.github.io/2017/09/18/testpost/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hu Xiaolong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="晨溪BLOG">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/18/testpost/" itemprop="url">testpost</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-18T16:33:02+08:00">
-                2017-09-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/09/18/testpost/" class="leancloud_visitors" data-flag-title="testpost">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  6
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>这里啥都没有</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-	<div>
-	  
-	</div>
-	
-    
-
-    
-
-    
-
-	
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1323,7 +1382,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1334,7 +1393,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1345,7 +1404,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1422,7 +1481,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1433,7 +1492,7 @@
   <span class="post-meta-divider">|</span>
   
   <div class="theme-info">
-    <span class="post-count">博客全站共2.1k字</span>
+    <span class="post-count">博客全站共2.9k字</span>
   </div>
 </div>
 
@@ -1599,7 +1658,7 @@
         notify: true,
         app_id: 'VIyyGCF3WQDBRYK7LVpY0qAc-gzGzoHsz',
         app_key: 'bjeuY3TYPvECgFMq7MSrXrsR',
-        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
+        placeholder: 'ヾﾉ≧∀≦)说点什么吧!'
     });
   </script>
 
