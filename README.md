@@ -1,1 +1,1 @@
-欢迎访问>>> [晨溪BLOG](https://bolg.icxcc.com)<<<
+欢迎访问>>> [晨溪BLOG](https://blog.icxcc.com)<<<
