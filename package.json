@@ -1,0 +1,36 @@
+{
+  "name": "my-blog",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "My blog",
+  "packageManager": "pnpm@10.14.0+sha512.ad27a79641b49c3e481a16a805baa71817a04bbe06a38d17e60e2eaee83f6a146c6a688125f5792e48dd5ba30e7da52a5cda4c3992b9ccf333f9ce223af84748",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild"
+    ]
+  },
+  "author": "胡小龙 <huxiaolong@bmsoft.com.cn>",
+  "license": "MIT",
+  "engines": {
+    "node": "^20.6.0 || >=22.0.0"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs --port 8888",
+    "docs:dev-clean": "vuepress dev docs --clean-cache --clean-temp",
+    "docs:build": "vuepress build docs --clean-cache --clean-temp",
+    "docs:preview": "http-server docs/.vuepress/dist",
+    "vp-update": "pnpm dlx vp-update"
+  },
+  "devDependencies": {
+    "@vuepress/bundler-vite": "2.0.0-rc.24",
+    "http-server": "^14.1.1",
+    "typescript": "^5.9.2",
+    "vue": "^3.5.18",
+    "vuepress": "2.0.0-rc.24",
+    "vuepress-theme-plume": "1.0.0-rc.160"
+  },
+  "dependencies": {
+    "@vuepress/shiki-twoslash": "2.0.0-rc.112"
+  }
+}
