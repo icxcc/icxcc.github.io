@@ -89,7 +89,7 @@ export default defineUserConfig({
     search: { provider: 'local' },
     
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
-    hostname: 'https://icxcc.github.io',
+    hostname: 'https://blog.icxcc.com',
 
     /**
      * Algolia DocSearch
