@@ -16,6 +16,10 @@ config:
           text: Blog
           link: /en/blog/
         -
+          theme: brand
+          text: Web3 Demo
+          link: /en/web3/
+        -
           theme: alt
           text: Github →
           link: https://github.com/icxcc/icxcc.github.io
