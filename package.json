@@ -31,6 +31,8 @@
     "vuepress-theme-plume": "1.0.0-rc.160"
   },
   "dependencies": {
-    "@vuepress/shiki-twoslash": "2.0.0-rc.112"
+    "@vuepress/shiki-twoslash": "2.0.0-rc.112",
+    "flowchart.ts": "^3.0.1",
+    "mermaid": "^11.9.0"
   }
 }

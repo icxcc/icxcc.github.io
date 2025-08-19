@@ -1,6 +1,6 @@
 ---
 title: 欢迎来到我的博客
-date: 2025-08-19
+date: 2025-08-19T00:00:00.000Z
 tags:
   - 博客
   - 介绍
@@ -8,6 +8,8 @@ categories:
   - 随笔
 cover: https://source.unsplash.com/random/800x450/?blog
 description: 这是我的第一篇博客文章，介绍了这个博客的创建过程和未来计划。
+createTime: 2025/08/19 10:41:33
+permalink: /article/ofpb6agt/
 ---
 
 # 欢迎来到我的博客

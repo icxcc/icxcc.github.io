@@ -1,7 +1,8 @@
 ---
 title: 关于我
-date: 2025-08-19
+date: 2025-08-19T00:00:00.000Z
 permalink: /about/
+createTime: 2025/08/19 10:45:59
 ---
 
 # 关于我

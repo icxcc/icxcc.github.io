@@ -1,6 +1,6 @@
 ---
 title: Markdown 增强功能演示
-date: 2025-08-19
+date: 2025-08-19T00:00:00.000Z
 tags:
   - Markdown
   - 教程
@@ -9,6 +9,8 @@ categories:
   - 技术
 cover: https://source.unsplash.com/random/800x450/?markdown
 description: 展示博客中支持的各种 Markdown 增强功能，包括数学公式、流程图、图标等。
+createTime: 2025/08/19 10:45:39
+permalink: /article/kl44r9f7/
 ---
 
 # Markdown 增强功能演示

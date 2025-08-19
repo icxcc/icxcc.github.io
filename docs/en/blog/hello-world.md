@@ -1,13 +1,17 @@
 ---
 title: Welcome to My Blog
-date: 2025-08-19
+date: 2025-08-19T00:00:00.000Z
 tags:
   - Blog
   - Introduction
 categories:
   - Notes
 cover: https://source.unsplash.com/random/800x450/?blog
-description: This is my first blog post, introducing the creation process of this blog and future plans.
+description: >-
+  This is my first blog post, introducing the creation process of this blog and
+  future plans.
+createTime: 2025/08/19 10:41:57
+permalink: /en/article/tj4j9c5u/
 ---
 
 # Welcome to My Blog
