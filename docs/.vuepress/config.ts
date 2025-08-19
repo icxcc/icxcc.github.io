@@ -48,7 +48,7 @@ export default defineUserConfig({
 
     /* 页内信息 */
     editLink: true,
-    lastUpdated: true,
+    lastUpdated: false,
     contributors: true,
     changelog: false,
 
@@ -68,6 +68,24 @@ export default defineUserConfig({
 
     /* 博客文章页面链接前缀 */
     article: '/article/',
+
+    // 顶部导航（多语言）
+    locales: {
+      '/': {
+        navbar: [
+          { text: '博客', link: '/blog/' },
+          { text: 'Web3', link: '/web3/' },
+          { text: '关于', link: '/about/' }
+        ],
+      },
+      '/en/': {
+        navbar: [
+          { text: 'Blog', link: '/en/blog/' },
+          { text: 'Web3 Demo', link: '/en/web3/' },
+          { text: 'About', link: '/en/about/' }
+        ],
+      },
+    },
 
     /**
      * 编译缓存，加快编译速度
@@ -138,7 +156,6 @@ export default defineUserConfig({
         mark: true,       // 启用图片标记
         size: true,       // 启用图片大小
       },
-      include: true,      // 在 Markdown 文件中导入其他 markdown 文件内容
       imageSize: 'local', // 启用 自动填充 图片宽高属性，避免页面抖动
     },
 
