@@ -16,10 +16,6 @@ config:
           text: 博客
           link: /blog/
         -
-          theme: brand
-          text: Web3 演示
-          link: /web3/
-        -
           theme: alt
           text: Github →
           link: https://github.com/icxcc/icxcc.github.io
