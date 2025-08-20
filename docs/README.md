@@ -7,9 +7,9 @@ config:
     full: true
     background: tint-plate
     hero:
-      name: 我的博客
-      tagline: 基于 VuePress 的个人博客
-      text: 分享我的技术心得、学习笔记和生活感悟
+      name: 字节漫游
+      tagline: ByteVoyage
+      text: 在技术海洋里航行，分享我的技术心得、学习笔记和生活感悟
       actions:
         -
           theme: brand

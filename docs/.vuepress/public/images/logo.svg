@@ -1,4 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <circle cx="50" cy="50" r="45" fill="#3498db" />
-  <text x="50" y="65" font-family="Arial" font-size="50" font-weight="bold" text-anchor="middle" fill="#ffffff">B</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 背景圆 -->
+  <circle cx="100" cy="100" r="90" fill="#1e3a8a" />
+  
+  <!-- 波浪 -->
+  <path d="M30,120 C50,100 70,140 90,120 C110,100 130,140 150,120 C170,100 190,140 210,120" 
+        stroke="#38bdf8" stroke-width="8" fill="none" />
+  <path d="M30,140 C50,120 70,160 90,140 C110,120 130,160 150,140 C170,120 190,160 210,140" 
+        stroke="#0ea5e9" stroke-width="6" fill="none" />
+  
+  <!-- 帆船 -->
+  <polygon points="100,40 100,100 140,100" fill="#f0f9ff" />
+  <polygon points="100,60 100,100 70,100" fill="#e0f2fe" />
+  <path d="M60,100 L140,100 L130,110 L70,110 Z" fill="#7dd3fc" />
+  
+  <!-- 字节符号 -->
+  <circle cx="85" cy="75" r="8" fill="#fbbf24" />
+  <circle cx="115" cy="75" r="8" fill="#fbbf24" />
+  
+  <!-- 罗盘指针 -->
+  <path d="M100,30 L105,20 L100,25 L95,20 Z" fill="#f0f9ff" />
 </svg>

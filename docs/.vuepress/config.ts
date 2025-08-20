@@ -18,20 +18,21 @@ export default defineUserConfig({
   lang: 'zh-CN',
   locales: {
     '/': {
-      title: 'My Blog',
+      title: '字节漫游',
       lang: 'zh-CN',
-      description: 'My blog',
+      description: '在技术海洋里航行',
     },
     '/en/': {
-      title: 'My Blog',
+      title: 'ByteVoyage',
       lang: 'en-US',
-      description: 'My blog',
+      description: 'Sailing through the ocean of technology',
     },
   },
 
   head: [
     // 配置站点图标 - 使用自定义SVG图标
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/images/logo.svg' }],
+    ['link', { rel: 'apple-touch-icon', href: '/images/logo.svg' }],
   ],
 
   bundler: viteBundler(),
