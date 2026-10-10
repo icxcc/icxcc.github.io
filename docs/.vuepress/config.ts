@@ -12,20 +12,21 @@
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
+import { enCollections, zhCollections } from './collections'
 
 export default defineUserConfig({
   base: '/',
   lang: 'zh-CN',
   locales: {
     '/': {
-      title: '字节漫游',
+      title: '字节生活',
       lang: 'zh-CN',
-      description: '在技术海洋里航行',
+      description: '记录技术、笔记与生活',
     },
     '/en/': {
-      title: 'ByteVoyage',
+      title: 'ByteLife',
       lang: 'en-US',
-      description: 'Sailing through the ocean of technology',
+      description: 'Writing about code, notes and life',
     },
   },
 
@@ -54,37 +55,16 @@ export default defineUserConfig({
     changelog: false,
 
     /**
-     * 博客
-     * @see https://theme-plume.vuejs.press/config/basic/#blog
+     * 文档集合配置
+     * 自 1.0.0-rc.165 起，原 blog / notes 配置已废弃，统一迁移到 collections
+     * @see https://theme-plume.vuejs.press/config/collections/
      */
-    // blog: false, // 禁用博客
-    blog: {
-      postList: true, // 是否启用文章列表页
-      tags: true, // 是否启用标签页
-      archives: true, // 是否启用归档页
-      categories: true, // 是否启用分类页
-      postCover: 'right', // 文章封面位置
-      pagination: 15, // 每页显示文章数量
-    },
+    collections: zhCollections,
 
-    /* 博客文章页面链接前缀 */
-    article: '/article/',
-
-    // 顶部导航（多语言）
+    // 顶部导航（多语言），统一在 navbar.ts 中维护，此处不再重复配置
     locales: {
-      '/': {
-        navbar: [
-          { text: '博客', link: '/blog/' },
-          { text: 'Web3', link: '/web3/' },
-          { text: '关于', link: '/about/' }
-        ],
-      },
       '/en/': {
-        navbar: [
-          { text: 'Blog', link: '/en/blog/' },
-          { text: 'Web3 Demo', link: '/en/web3/' },
-          { text: 'About', link: '/en/about/' }
-        ],
+        collections: enCollections,
       },
     },
 
@@ -169,17 +149,24 @@ export default defineUserConfig({
     /**
      * 评论 comments
      * @see https://theme-plume.vuejs.press/guide/features/comments/
+     *
+     * 启用前需在仓库 Settings → Discussions 中开启讨论功能，
+     * 并在 https://giscus.app 生成配置（repoId / categoryId 来源于此）
      */
     comment: {
       provider: 'Giscus', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
       comment: true,
       repo: 'icxcc/icxcc.github.io',
-      repoId: '', // 你需要在 GitHub 上获取这个 ID
+      repoId: 'MDEwOlJlcG9zaXRvcnkxMDQyODkyOTY=',
       category: 'Announcements',
-      categoryId: '', // 你需要在 GitHub 上获取这个 ID
+      categoryId: 'DIC_kwDOBjdUEM4DHd4W',
       mapping: 'pathname',
+      strict: false, // 对应 data-strict="0"，标题变更后仍复用同一话题
       reactionsEnabled: true,
-      inputPosition: 'top',
+      inputPosition: 'bottom',
+      // 日间 / 夜间模式分别使用 giscus 主题（lightTheme 默认 light，darkTheme 默认 dark）
+      lightTheme: 'preferred_color_scheme',
+      darkTheme: 'transparent_dark',
     },
 
     /**

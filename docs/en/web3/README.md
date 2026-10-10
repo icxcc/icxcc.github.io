@@ -1,6 +1,7 @@
 ---
 title: Web3 Wallet Connect
 permalink: /en/web3/
+createTime: 2025/08/19 11:54:13
 ---
 
 # Web3 Wallet Connect

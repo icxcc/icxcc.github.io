@@ -1,22 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
   <!-- 背景圆 -->
   <circle cx="100" cy="100" r="90" fill="#1e3a8a" />
-  
-  <!-- 波浪 -->
-  <path d="M30,120 C50,100 70,140 90,120 C110,100 130,140 150,120 C170,100 190,140 210,120" 
-        stroke="#38bdf8" stroke-width="8" fill="none" />
-  <path d="M30,140 C50,120 70,160 90,140 C110,120 130,160 150,140 C170,120 190,160 210,140" 
-        stroke="#0ea5e9" stroke-width="6" fill="none" />
-  
-  <!-- 帆船 -->
-  <polygon points="100,40 100,100 140,100" fill="#f0f9ff" />
-  <polygon points="100,60 100,100 70,100" fill="#e0f2fe" />
-  <path d="M60,100 L140,100 L130,110 L70,110 Z" fill="#7dd3fc" />
-  
-  <!-- 字节符号 -->
-  <circle cx="85" cy="75" r="8" fill="#fbbf24" />
-  <circle cx="115" cy="75" r="8" fill="#fbbf24" />
-  
-  <!-- 罗盘指针 -->
-  <path d="M100,30 L105,20 L100,25 L95,20 Z" fill="#f0f9ff" />
+
+  <!-- 书本：代表记录与分享 -->
+  <path d="M38,62 Q64,52 98,62 L98,142 Q64,132 38,142 Z" fill="#f0f9ff" />
+  <path d="M162,62 Q136,52 102,62 L102,142 Q136,132 162,142 Z" fill="#e0f2fe" />
+  <!-- 文字行 -->
+  <path d="M52,80 L84,80" stroke="#94a3b8" stroke-width="4" stroke-linecap="round" />
+  <path d="M52,94 L84,94" stroke="#94a3b8" stroke-width="4" stroke-linecap="round" />
+  <path d="M52,108 L84,108" stroke="#94a3b8" stroke-width="4" stroke-linecap="round" />
+  <path d="M116,80 L148,80" stroke="#94a3b8" stroke-width="4" stroke-linecap="round" />
+  <path d="M116,94 L148,94" stroke="#94a3b8" stroke-width="4" stroke-linecap="round" />
+  <path d="M116,108 L148,108" stroke="#94a3b8" stroke-width="4" stroke-linecap="round" />
+
+  <!-- 咖啡杯：代表生活气息 -->
+  <path d="M74,150 L74,166 Q74,174 82,174 L110,174 Q118,174 118,166 L118,150 Z" fill="#fbbf24" />
+  <!-- 杯把 -->
+  <path d="M118,155 L126,155 Q133,155 133,161 Q133,167 126,167 L118,167"
+        stroke="#fbbf24" stroke-width="6" fill="none" stroke-linecap="round" />
+  <!-- 咖啡液面 -->
+  <path d="M78,156 L114,156" stroke="#b45309" stroke-width="5" stroke-linecap="round" />
+
+  <!-- 蒸汽：生活气息 -->
+  <path d="M88,142 C84,134 92,130 88,122" stroke="#7dd3fc" stroke-width="4"
+        fill="none" stroke-linecap="round" />
+  <path d="M104,142 C100,134 108,130 104,122" stroke="#7dd3fc" stroke-width="4"
+        fill="none" stroke-linecap="round" />
+
+  <!-- 字节符号：书页上的两个光点 -->
+  <circle cx="76" cy="66" r="6" fill="#38bdf8" />
+  <circle cx="124" cy="66" r="6" fill="#38bdf8" />
 </svg>

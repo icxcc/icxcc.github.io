@@ -12,18 +12,17 @@
 
 import { defineThemeConfig } from 'vuepress-theme-plume'
 import { enNavbar, zhNavbar } from './navbar'
-import { enNotes, zhNotes } from './notes'
 
 /**
  * @see https://theme-plume.vuejs.press/config/basic/
  */
 export default defineThemeConfig({
-  logo: 'https://theme-plume.vuejs.press/plume.png',
+  logo: '/images/logo.svg',
 
   appearance: true,  // 配置 深色模式
 
   social: [
-    { icon: 'github', link: '/' },
+    { icon: 'github', link: 'https://github.com/icxcc' },
   ],
   // navbarSocialInclude: ['github'], // 允许显示在导航栏的 social 社交链接
   // aside: true, // 页内侧边栏， 默认显示在右侧
@@ -58,16 +57,12 @@ export default defineThemeConfig({
        * @see https://theme-plume.vuejs.press/config/basic/#profile
        */
       profile: {
-        avatar: 'https://theme-plume.vuejs.press/plume.png',
-        name: 'My Blog',
-        description: 'My blog',
-        // circle: true,
-        // location: '',
-        // organization: '',
+        avatar: '/images/logo.svg',
+        name: '字节生活 ByteLife',
+        description: '记录技术、笔记与生活',
       },
 
       navbar: zhNavbar,
-      notes: zhNotes,
 
       /**
        * 公告板
@@ -85,16 +80,12 @@ export default defineThemeConfig({
        * @see https://theme-plume.vuejs.press/config/basic/#profile
        */
       profile: {
-        avatar: 'https://theme-plume.vuejs.press/plume.png',
-        name: 'My Blog',
-        description: 'My blog',
-        // circle: true,
-        // location: '',
-        // organization: '',
+        avatar: '/images/logo.svg',
+        name: 'ByteLife',
+        description: 'Writing about code, notes and life',
       },
 
       navbar: enNavbar,
-      notes: enNotes,
 
       /**
        * 公告板
