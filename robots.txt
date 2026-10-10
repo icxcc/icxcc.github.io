@@ -1,0 +1,3 @@
+Sitemap: http://blog.icxcc.com/sitemap.xml
+User-agent:*
+Disallow:
