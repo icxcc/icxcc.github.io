@@ -8,6 +8,9 @@
 - 描述：记录技术、笔记与生活/ Writing about code, notes and life
 - logo：`docs/.vuepress/public/images/logo.svg`，深蓝底(#1e3a8a) + 书本/咖啡杯，
   蓝`#38bdf8`、黄 `#fbbf24` 为点缀色
+- 内容板块：博客（`blog/`）、笔记示例（`notes/demo/`）、关于。
+  **Web3 板块已于 2026-10-10 移除**（目录、WalletConnect 组件、导航项、英文 hero 按钮），
+  备份在 `$TEMP/web3-removed-<时间戳>/`
 
 ## 技术栈
 
@@ -20,6 +23,9 @@
 - 集合配置文件：`docs/.vuepress/collections.ts`（**需要重启**才生效，不放 plume.config.ts）
 - 热更新配置：`docs/.vuepress/plume.config.ts`
 - collections 必须写在 `config.ts` 的 theme 里，并在 `locales['/en/']` 单独配英文版
+- 导航栏：`docs/.vuepress/navbar.ts`，用 `createNavbar(prefix)` 工厂按 locale 生成，
+  **不要**在 `navbar.ts` 和 `config.ts` 里各写一份（后者会被覆盖）
+- 中文站和英文站的内容不一定对称，改动前先 grep 确认另一语言有没有对应项
 
 ## collections 配置要点（plume ≥ rc.165）
 
@@ -40,6 +46,10 @@
 - 无头浏览器在
   `C:\Users\HH\AppData\Local\ms-playwright\chromium-1200\chrome-win64\chrome.exe`，
   截图加 `--headless=new --virtual-time-budget=8000` 让动画跑完
+- 无头浏览器访问 `http://localhost` 偶尔被拦，**验收走 `pnpm docs:dev`**；
+  `docs:dev` 必须用 `run_in_background` 启动且**命令里不要加 `&`**（会随命令结束被回收），
+  用 `tee` 落日志后轮询就绪
+- 截图 SVG 时窗口要大于 SVG 尺寸，否则被裁切（误判成元素没渲染）
 
 ## 待办
 

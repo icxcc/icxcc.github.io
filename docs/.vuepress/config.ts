@@ -41,7 +41,7 @@ export default defineUserConfig({
 
   theme: plumeTheme({
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
-    // hostname: 'https://your_site_url',
+    hostname: 'http://blog.icxcc.com/',
 
     /* 文档仓库配置，用于 editLink */
     docsRepo: 'icxcc/icxcc.github.io',
@@ -86,9 +86,6 @@ export default defineUserConfig({
 
     /* 本地搜索, 默认启用 */
     search: { provider: 'local' },
-    
-    /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
-    hostname: 'https://blog.icxcc.com',
 
     /**
      * Algolia DocSearch
@@ -138,6 +135,7 @@ export default defineUserConfig({
         size: true,       // 启用图片大小
       },
       imageSize: 'local', // 启用 自动填充 图片宽高属性，避免页面抖动
+      qrcode: true,       // 启用二维码生成器  @[qrcode](content)
     },
 
     /**

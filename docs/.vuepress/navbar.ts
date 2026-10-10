@@ -26,7 +26,6 @@ function createNavbar(prefix: '/en/' | '/') {
       // 指向 doc 集合的 linkPrefix，而非源文件路径
       items: [{ text: isEn ? 'Demo' : '示例', link: `${prefix}demo/` }],
     },
-    { text: isEn ? 'Web3 Demo' : 'Web3', link: `${prefix}web3/` },
     { text: isEn ? 'About' : '关于', link: `${prefix}about/` },
   ])
 }
